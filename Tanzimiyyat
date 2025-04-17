@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halal Routine</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f2fdf4;
+      color: #222;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #0a8;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 400px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Halal Routine by RahiL</h1>
+  <div class="card">
+    <label for="time">Time:</label>
+    <input type="time" id="time"><label for="link">Content Link (YouTube/embed):</label>
+<input type="text" id="link" placeholder="Paste your link">
+
+<button onclick="setRoutine()">Set Routine</button>
+
+  </div>  <div class="card" id="showCard" style="display:none">
+    <h3>Scheduled Content</h3>
+    <p id="scheduledTime"></p>
+    <iframe id="preview"></iframe>
+  </div>  <script>
+    function setRoutine() {
+      const time = document.getElementById("time").value;
+      const link = document.getElementById("link").value;
+
+      if (!time || !link) {
+        alert("Time ও লিংক দিন বাবু!");
+        return;
+      }
+
+      document.getElementById("scheduledTime").textContent = `⏰ Content scheduled at: ${time}`;
+      document.getElementById("preview").src = link;
+      document.getElementById("showCard").style.display = "block";
+    }
+  </script></body>
+</html>
